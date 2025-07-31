@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Budget - EduFund</title>
+    <link rel="stylesheet" href="css/create.css">
+</head>
+<body>
+    <div class="container budget-creation-container">
+        <header class="app-header-simple">
+            <a href="home.html"><img src="back_arrow.png" alt="Back" class="back-arrow"></a>
+            <div class="app-logo-small">
+                <img src="edufund_logo_small.png" alt="EduFund">
+            </div>
+            <div></div> </header>
+        <section class="content-section">
+            <h2>Create Budget</h2>
+            <div class="category-grid">
+                <button class="category-item" data-category="transportation">
+                    <img src="transportation_icon.png" alt="Transportation">
+                    <span>Transportation</span>
+                </button>
+                <button class="category-item" data-category="education">
+                    <img src="education_icon.png" alt="Education">
+                    <span>Education</span>
+                </button>
+                <button class="category-item" data-category="food">
+                    <img src="food_icon.png" alt="Food">
+                    <span>Food</span>
+                </button>
+                <button class="category-item" data-category="shopping">
+                    <img src="shopping_icon.png" alt="Shopping">
+                    <span>Shopping</span>
+                </button>
+                <button class="category-item" data-category="utilities">
+                    <img src="utilities_icon.png" alt="Utilities">
+                    <span>Utilities</span>
+                </button>
+                <button class="category-item" data-category="savings">
+                    <img src="savings_icon.png" alt="Savings">
+                    <span>Savings</span>
+                </button>
+                <button class="category-item" data-category="health">
+                    <img src="health_icon.png" alt="Health">
+                    <span>Health</span>
+                </button>
+                <button class="category-item add-category">
+                    <img src="add_icon_round.png" alt="Add Budget">
+                    <span>Manage</span>
+                </button>
+            </div>
+        </section>
+        <footer class="navigation-footer">
+            <button class="primary-button next-button">Next</button>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.category-item:not(.add-category)').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('selected');
+            });
+        });
+
+        document.querySelector('.next-button').addEventListener('click', function() {
+            const selectedCategories = Array.from(document.querySelectorAll('.category-item.selected'))
+                                           .map(btn => btn.dataset.category);
+            localStorage.setItem('selectedBudgetCategories', JSON.stringify(selectedCategories));
+            
+            window.location.href = 'view_selected.html';
+        });
+
+        document.querySelector('.back-arrow').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+</body>
+</html>
