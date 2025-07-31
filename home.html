@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFund Home</title>
+    <link rel="stylesheet" href="css/home.css">
+    </head>
+<body>
+
+    <div class="container home-container active">
+        <header class="app-header">
+            <div class="user-info">
+                <img src="user_avatar.png" alt="User Avatar" class="user-avatar">
+                <span>Hello, Nickal!</span>
+            </div>
+            <div class="app-logo-small">
+                <img src="edufund_logo_small.png" alt="EduFund">
+            </div>
+        </header>
+        <section class="balance-overview">
+            <div class="balance-card">
+                <p class="available-balance-label">Available Balance</p>
+                <h1 class="balance-amount">₱ 900.00</h1>
+                <div class="spending-chart-section">
+                    <div class="chart-placeholder">
+                        <img src="chart_placeholder.png" alt="Spending Chart">
+                    </div>
+                    <ul class="spending-legend">
+                        <li><span class="color-box transportation"></span> Transportation</li>
+                        <li><span class="color-box foods"></span> Foods</li>
+                        <li><span class="color-box savings"></span> Savings</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="lessons-section">
+            <h2>Lessons</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Find Topics">
+            </div>
+            <ul class="lesson-list">
+                <li class="lesson-item">
+                    <span>Wants vs Needs</span>
+                    <button class="secondary-button">Go</button>
+                </li>
+                <li class="lesson-item">
+                    <span>Mastering Your Cash Flow</span>
+                    <button class="secondary-button">Go</button>
+                </li>
+                </ul>
+        </section>
+        <footer class="app-footer">
+            <nav class="bottom-navigation">
+                <a href="home.html" class="nav-item active">
+                    <img src="home_icon.png" alt="Home">
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="plus_icon.png" alt="Add Transaction">
+                    <span>Add</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <img src="book_icon.png" alt="Lessons">
+                    <span>Lessons</span>
+                </a>
+            </nav>
+        </footer>
+    </div>
+
+    <script>
+        // No specific JS needed here for page transitions, as this is the "final" page for a user.
+        // The "Add" and "Lessons" links in the footer would lead to other pages in a full app.
+    </script>
+</body>
+</html>

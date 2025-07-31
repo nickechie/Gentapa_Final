@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up for EduFund</title>
+    <link rel="stylesheet" href="css/register.css">
+    </head>
+<body>
+
+    <div class="container register-container active">
+        <div class="logo">
+            <img src="img/Blogo.png" alt="EduFund Logo">
+        </div>
+        <h2>Sign Up</h2>
+        <form class="register-form">
+            <div class="name-fields">
+                
+                <label for="first-name">First Name</label>
+                <input type="text" placeholder="Enter your First Name">
+                <label for="last-name">Last Name</label>
+                <input type="text" placeholder="Enter your Last Name">
+
+                <!-- <div class="input-group">
+                    
+                    <input type="text" id="first-name" placeholder="Enter your first name">
+                </div>
+                <div class="input-group">
+                    
+                    <input type="text" id="last-name" placeholder="Enter your last name">
+                </div> -->
+            </div>
+            <div class="input-group">
+                <label for="register-email">Email Address</label>
+                <input type="email" id="register-email" placeholder="Enter email address">
+            </div>
+            <div class="input-group">
+                <label for="register-password">Password</label>
+                <input type="password" id="register-password" placeholder="Enter password">
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm password">
+            </div>
+            <div>
+            <button class="primary-button">Create Account <a href="login.html"></a></button>
+        </div>
+            <div class="auth-link">
+                Already have an account? <a href="login.html">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // For a real application, a successful registration would redirect to home.html or login.html
+        // Example (conceptual):
+        /*
+        document.querySelector('.register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Perform registration validation/API call here
+            // If successful:
+            // window.location.href = 'home.html'; // Or 'login.html'
+            // Else:
+            // Display error message
+        });
+        */
+    </script>
+</body>
+</html>

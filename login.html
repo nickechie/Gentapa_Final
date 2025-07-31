@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to EduFund</title>
+    <link rel="stylesheet" href="css/login.css">
+    </head>
+<body>
+
+    <div class="container login-container active">
+        <div class="logo">
+            <img src="img/Blogo.png" alt="EduFund Logo">
+        </div>
+        <h2>Login</h2>
+        <form class="login-form">
+            <div class="input-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="👤   Username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="password-input">
+                    <input type="password" id="password" placeholder="🔑   Input password">
+                    <button type="button" class="show-password">🔓</a></button>
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+            <button type="submit" class="primary-button">Login</button>
+            <div class="social-login">
+                <span>or</span>
+                <div class="social-icons">
+                    <a href="#"><img src="img/gogol.png" alt="Google"></a>
+                    <a href="#"><img src="img/insta.png" alt="Instagram"></a>
+                    <a href="#"><img src="img/pesbok.png" alt="Facebook"></a>
+                </div>
+            </div>
+            <div class="auth-link">
+                Don't have an account? <a href="register.html">Sign Up</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for "Show Password" button
+        const showPasswordButton = document.querySelector('.show-password');
+        if (showPasswordButton) {
+            showPasswordButton.addEventListener('click', () => {
+                const passwordInput = document.getElementById('password');
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    showPasswordButton.textContent = '🔓';
+                } else {
+                    passwordInput.type = 'password';
+                    showPasswordButton.textContent = '🔒';
+                }
+            });
+        }
+        // For a real application, a successful login would redirect to home.html
+        // Example (conceptual):
+        /*
+        document.querySelector('.login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Perform login validation/API call here
+            // If successful:
+            // window.location.href = 'home.html';
+            // Else:
+            // Display error message
+        });
+        */
+    </script>
+</body>
+</html>
