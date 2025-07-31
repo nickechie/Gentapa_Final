@@ -1,0 +1,88 @@
+body {
+ margin: 0;
+ overflow: hidden; /* Prevent scrollbars during the splash */
+ background: linear-gradient(to bottom, #008080, #004d4d); /* Adjust gradient colors */
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+
+.splash-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+
+.logo-container {
+ opacity: 0; /* Initially hidden */
+}
+
+
+.logo {
+ max-width: 200px; /* Adjust logo size */
+ height: auto;
+}
+
+
+.start-button {
+ display: none; /* Initially hidden */
+ padding: 15px 30px;
+ margin-top: 40px;
+ background-color: #00ccbc; /* Button background color */
+ color: white;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 1.1em;
+ opacity: 0; /* Initially hidden */
+}
+
+
+/* Fade-in animation */
+.fade-in {
+ animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+
+@keyframes fadeIn {
+ from { opacity: 0; }
+ to { opacity: 1; }
+}
+
+
+/* Animation sequence */
+body {
+ animation: backgroundFade 3s ease-in-out forwards;
+}
+
+
+.logo-container {
+ animation: logoFadeIn 2s ease-in-out 1s forwards; /* Delay the logo appearance */
+}
+
+
+.start-button {
+ animation: buttonFadeIn 1s ease-in-out 2.5s forwards; /* Delay the button appearance */
+ display: inline-block; /* Make button visible for animation */
+}
+
+
+@keyframes backgroundFade {
+ 0% { background: linear-gradient(to bottom, #003333, #001a1a); } /* Initial darker shade */
+ 100% { background: linear-gradient(to bottom, #008080, #004d4d); } /* Final background */
+}
+
+
+@keyframes logoFadeIn {
+ from { opacity: 0; transform: translateY(20px); }
+ to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes buttonFadeIn {
+ from { opacity: 0; transform: translateY(20px); }
+ to { opacity: 1; transform: translateY(0); }
+}

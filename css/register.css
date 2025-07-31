@@ -1,0 +1,244 @@
+body {
+    font-family: 'Arial', sans-serif; /* Fallback font, consider importing a specific font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #004e64 0%, #00c6a9 100%);
+    color: white; /* Light background for the overall app */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top initially, containers will manage their own vertical centering if needed */
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Base container for all pages to ensure consistent styling */
+.container {
+    /* background-color: linear-gradient(135deg,#00c6a9 10%, #004e64 0% ); */
+    background: rgba(255,255,255,0.07);
+    border-radius: 20px; /* More rounded corners based on the design */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 30px auto; /* Centering and space from top/bottom */
+    max-width: 1000px; /* Max width for consistent look */
+    width: 90%;
+    height: 800px; /* Responsive width */
+    box-sizing: border-box; 
+}
+
+/* Logo Styling */
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    max-width: 180px; /* Adjust logo size as per image */
+    height: auto;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: #ffffff; /* Primary brand color */
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* Form Group Styling */
+.input-group {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.name-fields {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.name-fields input {
+   width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #2eacbf; /* Light grey border */
+    border-radius: 10px; /* Rounded input fields */
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #e4e4e4;
+}
+.name-fields label{
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff; /* Darker grey for labels */
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff; /* Darker grey for labels */
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #2eacbf; /* Light grey border */
+    border-radius: 10px; /* Rounded input fields */
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #e4e4e4;
+}
+
+.input-group input::placeholder {
+    color: #b0bec5; /* Lighter placeholder text */
+}
+
+/* Password Input with Show/Hide Button */
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input input {
+    padding-right: 60px; /* Space for the button */
+}
+
+.password-input .show-password {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #21e3d0; /* Primary color for "Show" */
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px; /* Increase clickable area */
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: 8px;
+    color: #ffffffbf;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+.primary-button {
+    background-color: #00897b; /* Primary brand color */
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.primary-button:hover {
+    background-color: #00695c; /* Darker shade on hover */
+}
+
+.secondary-button { /* Used for "Go" buttons on lessons */
+    background-color: #e0f2f7; /* Light teal */
+    color: #00897b;
+    border: 1px solid #ffffff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondary-button:hover {
+    background-color: #00897b;
+    color: white;
+}
+
+/* Social Login */
+.social-login {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.social-login span {
+    color: #e9e9e9; /* Medium grey */
+    font-size: 0.9em;
+    position: relative;
+    padding: 0 15px;
+}
+
+.social-login span::before,
+.social-login span::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 1px;
+    background-color: #eceff1; /* Light line */
+}
+
+.social-login span::before {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.social-login span::after {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between icons */
+    margin-top: 20px;
+}
+
+.social-icons a img {
+    width: 35px; /* Size of social icons */
+    height: 35px;
+    border-radius: 100%;
+    box-shadow: 0 2px 5px rgba(11, 40, 39, 0.552); /* Subtle shadow */
+    transition: transform 0.2s ease;
+}
+
+.social-icons a img:hover {
+    transform: translateY(-3px);
+}
+
+/* Auth Link (Sign Up / Login) */
+.auth-link {
+    text-align: center;
+    margin-top: 25px;
+    color: #e4e4e4d2;
+    font-size: 0.95em;
+}
+
+.auth-link a {
+    color: #e4e4e4d9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
