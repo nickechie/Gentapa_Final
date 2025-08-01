@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Priority - EduFund</title>
+    <link rel="stylesheet" href="css/set.css">
+</head>
+<body>
+    <div class="container set-priority-container">
+        <header class="app-header-simple">
+            <!-- <a href="view_selected.html"><img src="img/back.png" alt="Back" class="back-arrow"></a> -->
+            <div class="app-logo-small">
+                <img src="img/EduFund.png" alt="EduFund">
+            </div>
+            <div></div> </header>
+        <section class="content-section">
+            <h2>Set Priority Rules</h2>
+            <div class="priority-rule">
+                <label for="priority-1">First Priority</label>
+                <div class="select-wrapper">
+                    <select id="priority-1">
+                        </select>
+                </div>
+                <div class="percentage-input">
+                    <input type="number" id="percent-1" value="45" min="1" max="100">
+                    <span>%</span>
+                </div>
+            </div>
+            <div class="priority-rule">
+                <label for="priority-2">Second Priority</label>
+                <div class="select-wrapper">
+                    <select id="priority-2">
+                        </select>
+                </div>
+                <div class="percentage-input">
+                    <input type="number" id="percent-2" value="40" min="1" max="100">
+                    <span>%</span>
+                </div>
+            </div>
+            <div class="priority-rule">
+                <label for="priority-3">Last Priority</label>
+                <div class="select-wrapper">
+                    <select id="priority-3">
+                        </select>
+                </div>
+                <div class="percentage-input">
+                    <input type="number" id="percent-3" value="15" min="1" max="100">
+                    <span>%</span>
+                </div>
+            </div>
+            <div class="budget-amount-input">
+                <label for="budget-amount">Budget Amount</label>
+                <input type="number" id="budget-amount" placeholder="">
+            </div>
+        </section>
+        <footer class="navigation-footer buttons-inline">
+            <button class="secondary-button back-button" onclick="window.location.href='view_selected.html'">Back</button>
+             <button class="primary-button next-button" onclick="window.location.href='display.html'">Next</button>
+        </footer>
+    </div>
+
+    <script>
+        const categoryMap = {
+            "transportation": { name: "Transportation", icon: "transportation_icon.png" },
+            "education": { name: "Education", icon: "education_icon.png" },
+            "food": { name: "Food", icon: "food_icon.png" },
+            "shopping": { name: "Shopping", icon: "shopping_icon.png" },
+            "utilities": { name: "Utilities", icon: "utilities_icon.png" },
+            "savings": { name: "Savings", icon: "savings_icon.png" },
+            "health": { name: "Health", icon: "health_icon.png" }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedCategoriesJson = localStorage.getItem('selectedBudgetCategories');
+            const selectedCategories = selectedCategoriesJson ? JSON.parse(selectedCategoriesJson) : [];
+
+            const selectIds = ['priority-1', 'priority-2', 'priority-3'];
+            selectIds.forEach(id => {
+                const selectElement = document.getElementById(id);
+                if (selectElement) {
+                    selectedCategories.forEach(categoryKey => {
+                        const option = document.createElement('option');
+                        option.value = categoryKey;
+                        option.textContent = categoryMap[categoryKey] ? categoryMap[categoryKey].name : categoryKey;
+                        selectElement.appendChild(option);
+                    });
+                }
+            });
+
+            // Set initial selected options based on a simple default or previous state
+            if (selectedCategories[0]) document.getElementById('priority-1').value = selectedCategories[0];
+            if (selectedCategories[1]) document.getElementById('priority-2').value = selectedCategories[1];
+            if (selectedCategories[2]) document.getElementById('priority-3').value = selectedCategories[2];
+        });
+
+        document.querySelector('.next-button').addEventListener('click', function() {
+            const budgetAmount = parseFloat(document.getElementById('budget-amount').value || 0); // Ensure it's a number
+            const priorities = [];
+            for (let i = 1; i <= 3; i++) {
+                const categorySelect = document.getElementById(`priority-${i}`);
+                const percentageInput = document.getElementById(`percent-${i}`);
+                if (categorySelect && percentageInput && categorySelect.value && percentageInput.value) {
+                    priorities.push({ 
+                        category: categorySelect.value, 
+                        percentage: parseInt(percentageInput.value) 
+                    });
+                }
+            }
+
+            // Basic validation for demonstration: percentages add up to 100
+            const totalPercentage = priorities.reduce((sum, p) => sum + p.percentage, 0);
+            if (totalPercentage !== 100) {
+                alert('Percentages must add up to 100%!');
+                return;
+            }
+            if (budgetAmount <= 0) {
+                 alert('Please enter a valid budget amount.');
+                 return;
+            }
+
+            localStorage.setItem('budgetAmount', budgetAmount);
+            localStorage.setItem('budgetPriorities', JSON.stringify(priorities));
+
+            window.location.href = 'display.html';
+        });
+    </script>
+</body>
+</html>
