@@ -31,7 +31,7 @@ body {
     /* background-color: #35b190; */
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); */
 }
 
 .user-info {
@@ -177,14 +177,14 @@ body {
 }
 
 .lesson-item {
-    background-color: white;
+    background-color: rgb(123, 212, 209);
     padding: 15px 20px;
     margin-bottom: 15px;
     border-radius: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 5px rgba(47, 175, 211, 0.08);
     transition: transform 0.2s ease;
 }
 
