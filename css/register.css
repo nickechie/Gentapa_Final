@@ -155,6 +155,22 @@ h2 {
     background-color: #00695c; /* Darker shade on hover */
 }
 
+/* Button Links Styling */
+.primary-button a {
+    text-decoration: none;
+    color: white;
+}
+
+.primary-button a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.primary-button a:visited {
+    text-decoration: none;
+    color: white;
+}
+
 .secondary-button { /* Used for "Go" buttons on lessons */
     background-color: #e0f2f7; /* Light teal */
     color: #00897b;

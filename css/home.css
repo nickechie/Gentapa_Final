@@ -200,22 +200,21 @@ body {
 
 /* App Footer / Bottom Navigation */
 .app-footer {
-    background-color: #004e64; /* Light teal for footer */
+    background-color: #1E5A64; /* Dark teal background from Figma */
     padding: 15px 0;
     width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
-    position: sticky; /* Sticky footer */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixed footer */
     bottom: 0;
     z-index: 1000;
-    border-radius: 5%; /* Ensure it stays on top */
+    border-radius: 0; /* No border radius */
 }
 
 .bottom-navigation {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    max-width: 400px; /* Constrain navigation width */
-    margin: 0 auto;
+    padding: 15px 0;
 }
 
 .nav-item {
@@ -223,25 +222,90 @@ body {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #90a4ae; /* Grey for inactive items */
-    font-size: 0.8em;
-    transition: color 0.3s ease;
+    color: rgba(255, 255, 255, 0.6); /* Semi-transparent white for inactive items */
+    font-size: 12px;
+    transition: opacity 0.3s ease;
+    opacity: 0.6;
 }
 
 .nav-item img {
-    width: 28px;
-    height: 28px;
+    width: 50px;
+    height: 53px;
     margin-bottom: 5px;
-    filter: grayscale(100%); /* Grey out inactive icons */
-    transition: filter 0.3s ease;
+    object-fit: contain;
+    background-color: transparent;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-item.active {
-    color: #4ed0d2; /* Primary color for active item */
+    color: white;
+    opacity: 1;
 }
 
 .nav-item.active img {
     filter: none; /* Show color for active icon */
+}
+
+/* Add Button Styling from Figma */
+.add-button {
+    width: 50px;
+    height: 53px;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.add-button span {
+    font-size: 40px;
+    font-weight: 700;
+    color: black;
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.nav-item:hover .add-button {
+    opacity: 1;
+}
+
+/* Remove old button backgrounds from navigation */
+.nav-item .primary-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-item .primary-button:hover {
+    background: none;
+}
+
+.nav-item .lessons-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.nav-item .lessons-button:hover {
+    background: none;
+    box-shadow: none;
 }
 
 /* Basic Responsiveness - adjust as needed */
@@ -273,6 +337,29 @@ body {
     .chart-placeholder {
         width: 100px;
         height: 100px;
+    }
+    
+    /* Mobile navigation adjustments */
+    .bottom-navigation {
+        padding: 10px 0;
+    }
+    
+    .nav-item img {
+        width: 45px;
+        height: 48px;
+    }
+    
+    .nav-item span {
+        font-size: 10px;
+    }
+    
+    .add-button {
+        width: 45px;
+        height: 48px;
+    }
+    
+    .add-button span {
+        font-size: 35px;
     }
 }
 
