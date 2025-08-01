@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget View - EduFund</title>
+    <link rel="stylesheet" href="css/view_all.css">
+</head>
+<body>
+    <div class="container budget-view-container">
+        <header class="app-header-simple">
+            <div class="app-logo-small">
+                <img src="img/EduFund.png" alt="EduFund">
+            </div>
+        </header>
+        <section class="content-section">
+            <h2>Final Weekly Budget View</h2>
+            <div class="budget-chart-container">
+                <img src="img/Balance.png" alt="Budget Chart">
+            </div>
+            <div class="budget-details" id="budgetDetails">
+                </div>
+        </section>
+        <footer class="navigation-footer">
+            <button class="primary-button done-button" onclick="window.location.href='home.html'">Done</button>
+        </footer>
+    </div>
+
+    <script>
+        const categoryMap = {
+            "transportation": { name: "Transportation", icon: "img/Transpo.png" },
+            "education": { name: "Education", icon: "img/education-icon 2.png" },
+            "food": { name: "Food", icon: "img/food.png" },
+            "shopping": { name: "Shopping", icon: "img/tdesign_cart.png" },
+            "utilities": { name: "Utilities", icon: "img/uti.png" },
+            "savings": { name: "Savings", icon: "img/savings.png" },
+            "health": { name: "Health", icon: "img/ix_health.png" }
+            // "transportation": { name: "Transportation", icon: "transportation_icon.png" },
+            // "education": { name: "Education", icon: "education_icon.png" },
+            // "food": { name: "Food", icon: "food_icon.png" },
+            // "shopping": { name: "Shopping", icon: "shopping_icon.png" },
+            // "utilities": { name: "Utilities", icon: "utilities_icon.png" },
+            // "savings": { name: "Savings", icon: "savings_icon.png" },
+            // "health": { name: "Health", icon: "health_icon.png" }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const budgetAmount = parseFloat(localStorage.getItem('budgetAmount') || 0);
+            const budgetPrioritiesJson = localStorage.getItem('budgetPriorities');
+            const budgetPriorities = budgetPrioritiesJson ? JSON.parse(budgetPrioritiesJson) : [];
+            const detailsContainer = document.getElementById('budgetDetails');
+            detailsContainer.innerHTML = '';
+
+            if (budgetPriorities.length > 0 && budgetAmount > 0) {
+                budgetPriorities.forEach(priority => {
+                    const categoryName = categoryMap[priority.category] ? categoryMap[priority.category].name : priority.category;
+                    const calculatedAmount = (budgetAmount * (priority.percentage / 100)).toFixed(2);
+                    
+                    const detailItem = document.createElement('div');
+                    detailItem.classList.add('detail-item');
+                    detailItem.innerHTML = `
+                        <span>${categoryName}</span>
+                        <span class="amount">₱ ${calculatedAmount}</span>
+                    `;
+                    detailsContainer.appendChild(detailItem);
+                });
+            } else {
+                detailsContainer.innerHTML = '<p style="text-align: center; color: #777; margin-top: 20px;">No budget data found. Please create a budget first.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
